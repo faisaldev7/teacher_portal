@@ -1,0 +1,54 @@
+<div class="container">
+  <h1>Student List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Subject</th>
+        <th>Marks</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @students.each do |student| %>
+        <tr data-student-id="<%= student.id %>">
+          <td contenteditable="true" class="editable name"><%= student.name %></td>
+          <td contenteditable="true" class="editable subject"><%= student.subject %></td>
+          <td contenteditable="true" class="editable marks"><%= student.marks %></td>
+          <td>
+            <button class="smallbtn" data-student-id="<%= student.id %>">Save</button>
+            <%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' }, class: 'redbtn' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <button id="openModal" class="btn">Add New Student</button>
+</div>
+
+<div class="modal" id="studentModal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h1 class="portal-logo">New Student</h1>
+    <%= form_with model: @student, local: true do |f| %>
+      <div class="input-group">
+        <label for="username">Name</label>
+        <%= f.text_field :name, autofocus: true, required: true, id: "name" %>
+        <span class="icon">👤</span>
+      </div>
+
+      <div class="input-group">
+        <label for="subject">Subject</label>
+        <%= f.text_field :subject, required: true, id: "subject" %>
+      </div>
+
+      <div class="input-group">
+        <label for="marks">Marks</label>
+        <%= f.text_field :marks, required: true, id: "marks" %>
+      </div>
+
+      <%= f.submit "Create Student", class: "login-btn" %>
+    <% end %>
+  </div>
+</div>

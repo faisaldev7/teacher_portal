@@ -1,0 +1,23 @@
+<div class="login-container">
+  <div class="login-box">
+    <h1 class="portal-logo">Teacher Portal</h1>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="input-group">
+        <label for="username">Username</label>
+        <%= f.text_field :username, autofocus: true, required: true, id: "username" %>
+        <span class="icon">👤</span>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <%= f.password_field :password, autocomplete: "current-password", required: true, id: "password" %>
+        <span class="icon">🔒</span>
+      </div>
+
+      <%= link_to "Forgot Password?", new_password_path(resource_name), class: "forgot-password" %>
+
+      <%= f.submit "Login", class: "login-btn" %>
+    <% end %>
+  </div>
+</div>
