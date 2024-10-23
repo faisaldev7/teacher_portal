@@ -6,15 +6,15 @@ Ruby on Rails, Devise, JavaScript, HTML, CSS
 ## Getting Started
 
 1. Clone the Repository:
-   git clone <repository-url>
-   cd teacher-portal
+   A. git clone <repository-url>
+   B. cd teacher-portal
 
 2. Install Dependencies:  
    bundle install
 
 3. Set Up the Database:
-   rails db:create
-   rails db:migrate
+   A. rails db:create
+   B. rails db:migrate
 
 4. Run the Application:
    rails s
